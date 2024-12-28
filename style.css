@@ -1,0 +1,700 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Kavoon&display=swap');
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F3F3F3;
+    color: #333;
+    height: 100vh;
+}
+
+/* Header Styling */
+header {
+    position: relative;
+    height: 65px; /* Adjusted header height */
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 20px;
+}
+
+/* Background Rectangles */
+.background-rectangles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Place the rectangles behind the content */
+    display: flex;
+    flex-direction: column;
+}
+
+.rectangle {
+    width: 100%;
+    height: 50%; /* Each rectangle takes half of the header height */
+}
+
+.rectangle.light-grey {
+    background-color: #D9D9D9; /* Light Grey */
+}
+
+.rectangle.dark-grey {
+    background-color: #CDC3C3; /* Darker Grey */
+}
+
+/* Logo and Title Alignment */
+header .logo-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1; /* Bring logo and title to the front */
+}
+
+header img {
+    margin-right: 10px;
+}
+
+header .header-text {
+    font-family: 'Kavoon', cursive;
+    font-size: 42px;
+    color: #074F2F;
+    text-shadow: 2px 2px 0px #E7F1D5, 4px 4px 0px #00000010;
+}
+
+
+
+/* Main Container */
+.main-container {
+    display: flex;
+    height: calc(100vh - 100px); /* Full height minus header */
+}
+
+/* Left Container */
+.left-container {
+    background-color: #D9D9D9;
+    width: 40%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: above;
+    border-right: 2px solid #ccc;
+}
+
+.left-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.left-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.left-container input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.checkbox-container input {
+    margin-right: 10px;
+}
+
+.checkbox-label {
+    margin: 0;
+}
+/* Align checkbox and text on the same line */
+.left-container label {
+    display: flex;
+    align-items: normal; /* Vertically center the content */
+    gap: 29px; /* Small gap between checkbox and text */
+    font-size: 15px; /* Adjust text size */
+    color: #333; /* Text color */
+}
+
+.left-container input[type="checkbox"] {
+    margin: 0; /* Remove default margin */
+    width: 16px; /* Adjust checkbox size */
+    height: 16px;
+}
+
+.left-container button {
+    background-color: #00C0F3;
+    color: white;
+    padding: 10px;
+    border: none;
+    width: 100%;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.left-container button:hover {
+    background-color: #009CC0;
+}
+
+.create-account {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.create-account a {
+    color: #009CC0;
+    text-decoration: none;
+}
+.left-container .app-header {
+    font-family: 'Kavoon', cursive;
+    font-size: 36px;
+    color: #074F2F;
+    margin-bottom: 15px;
+    text-align: center;
+    text-shadow: 2px 2px 0px #E7F1D5;
+}
+.left-container .app-logo {
+    width: 200px;
+    margin-bottom: 15px;
+}
+
+/* Right Container */
+.right-container input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.right-container {
+    display: flex;
+    flex-direction: column;
+    width: 60%; /* Keep this width if the layout is split 40%-60% */
+    background-color: white;
+    border-left: 2px solid #CDC3C3; /* Consistent border styling */
+    padding: 30px; /* Add padding for better spacing inside the container */
+    align-items: center; /* Center elements horizontally */
+    justify-content: center; /* Center elements vertically */
+    overflow-y: auto; /* Allow scrolling for overflow content */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+
+.right-container .app-logo {
+    width: 200px;
+    margin-bottom: 15px;
+}
+
+.right-container .app-header {
+    font-family: 'Kavoon', cursive;
+    font-size: 36px;
+    color: #074F2F;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 0px #E7F1D5;
+}
+
+.right-container p {
+    line-height: 1.5;
+    color: #555;
+    text-align: justify;
+    max-width: 80%;
+}
+.form-box input {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+button {
+    background-color: #009CC0;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+/* Signup Page General Styling */
+.signup-container {
+    display: flex;
+    height: 100vh; /* Full screen height */
+}
+
+/* Left Section */
+.signup-left {
+    background-color: #D9D9D9; /* Light Grey Background */
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.signup-left img.signup-logo {
+    width: 250px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.signup-left p {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Right Section */
+.signup-right {
+    background-color: #FFFFFF; /* White background */
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: above;
+    padding: 20px 50px;
+}
+
+.signup-right h2 {
+    font-size: 36px;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.signup-right p {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.signup-right a.login-link {
+    color: blue;
+    text-decoration: none;
+}
+
+.signup-right label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.signup-right input {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.signup-right .checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.signup-right .signup-btn {
+    background-color: #00C0F3; /* Blue button */
+    color: white;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.signup-right .signup-btn:hover {
+    background-color: #009CC0; /* Darker blue hover effect */
+}
+
+
+
+
+
+
+
+
+
+.chat-search {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #CDC3C3;
+    border-radius: 5px;
+    outline: none;
+}
+
+.chat-list {
+    list-style: none;
+}
+
+.chat-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.chat-list li img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.chat-list li strong {
+    font-size: 16px;
+    color: #333;
+}
+
+.chat-list li p {
+    font-size: 12px;
+    color: #666;
+}
+
+/* Chat List Styling */
+.chat-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    background-color: #D9D9D9; /* White background for chat items */
+    stroke: #000000;
+    stroke: #000000;
+    border: 0px solid #999; /* Gray border for rectangle */
+    border-radius: 5px; /* Rounded corners for a smoother look */
+    padding: 10px; /* Space inside the rectangle */
+    box-shadow: 0 2px 4px rgba(0, 0, 0.1, 0.1); /* Subtle shadow for depth */
+}
+
+.chat-list li img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px; /* Space between image and text */
+}
+
+.chat-list li div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.chat-list li strong {
+    font-size: 16px;
+    color: #333;
+}
+
+.chat-list li p {
+    font-size: 12px;
+    color: #666;
+}
+
+
+
+
+
+
+.profile-title {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border: 3px solid #00C0F3;
+}
+
+.right-section h3 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.right-section p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.edit-icons span {
+    font-size: 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    color: #666;
+}
+
+.profile-actions {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.profile-actions div {
+    margin: 0 20px;
+    text-align: center;
+}
+
+.profile-actions div span {
+    font-size: 28px;
+    color: #555;
+}
+
+.profile-actions div p {
+    font-size: 14px;
+    color: #555;
+}
+ 
+.logout-btn {
+    background-color: #00C0F3;
+    color: white;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: #009CC0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* AzianaChat HTML Reseting */
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body Styling */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #F3F3F3;
+    color: #333;
+    height: 100vh;
+  }
+  
+  /* Chat App Container */
+  .chat-app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+
+  
+
+  
+  /* Chat List Container */
+  .chat-list-container {
+    width: 30%;
+    background-color: #D9D9D9;
+    padding: 20px;
+    border-right: 1px solid #ccc;
+  }
+  
+  .chat-list-container h2 {
+    margin-bottom: 15px;
+  }
+  
+  .chat-search {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+  }
+  
+  .chat-list {
+    list-style: none;
+  }
+  
+  .chat-list li {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .chat-list li.active-chat {
+    background-color: #00C853;
+    color: white;
+  }
+  
+  .chat-list li:hover {
+    background-color: #F1F1F1;
+  }
+  
+  .chat-list img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  /* Chat Area */
+  .chat-area {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+  }
+  
+  .chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid #CCC;
+  }
+  
+  .chat-profile-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 70%;
+    margin-right: 10px;
+  }
+  
+  .chat-header h3 {
+    font-size: 18px;
+    margin: 0;
+  }
+  
+  .chat-header .status {
+    font-size: 14px;
+    color: #00C853;
+  }
+  
+  .chat-icons span {
+    font-size: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  
+  .chat-messages {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  
+  .message {
+    max-width: 60%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 14px;
+  }
+  
+  .message.sent {
+    background-color: #B3E5FC;
+    margin-left: auto;
+  }
+  
+  .message.received {
+    background-color: #F3F3F3;
+  }
+  
+  .message .time {
+    font-size: 12px;
+    color: #999;
+    text-align: right;
+    margin-top: 5px;
+  }
+  
+  /* Chat Input */
+  .chat-input {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-top: 1px solid #CCC;
+    background-color: #F9F9F9;
+  }
+  
+  .chat-input .attach-icon {
+    font-size: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .chat-input input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #CCC;
+    border-radius: 20px;
+    outline: none;
+  }
+  
+  .chat-input .send-button {
+    font-size: 16px;
+    background-color: #00C853;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin-left: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

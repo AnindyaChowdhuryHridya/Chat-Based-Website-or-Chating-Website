@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Hello Buddy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="background-rectangles">
+            <div class="rectangle light-grey"></div>
+            <div class="rectangle dark-grey"></div>
+        </div>
+        <div class="logo-container">
+            <img src="hellobuddy logo.png" alt="Hello Buddy Logo" width="60" height="60">
+            <h1 class="header-text">HELLO BUDDY</h1>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="signup-container">
+        <!-- Left Section -->
+        <div class="signup-left">
+            <img src="hellobuddy logo.png" alt="Hello Buddy Logo" class="signup-logo">
+            <p>Make Your Move Smartly with HelloBuddy</p>
+        </div>
+
+        <!-- Right Section -->
+        <div class="signup-right">
+            <h2>Sign Up</h2>
+            <p>Already created an account? <a href="index.html" class="login-link">Log In</a></p>
+            <form>
+                <label for="username">Your Username</label>
+                <input type="text" id="username" placeholder="Write Down Your Username">
+
+                <label for="password">Your Password</label>
+                <input type="password" id="password" placeholder="Write Down Your Password">
+
+                <label for="retype-password">ReType Your Password</label>
+                <input type="password" id="retype-password" placeholder="ReType Down Your Password">
+
+                <label for="mobile">Your Mobile Number</label>
+                <input type="text" id="mobile" placeholder="Write Down Your Phone Number">
+
+                <label for="university">Your University</label>
+                <input type="text" id="university" placeholder="Write Down Your University Name">
+
+                <label class="checkbox-container">
+                    <input type="checkbox"> Keep me logged in
+                </label>
+
+                <button type="submit" class="signup-btn"><a href="profile.html">Sign Up</a></button>
+            </form>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+<script>
+    const socket = io();
+
+    document.getElementById('chat-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const input = document.getElementById('chat-input');
+        socket.emit('chat message', input.value);
+        input.value = '';
+    });
+
+    socket.on('chat message', (msg) => {
+        const messages = document.getElementById('messages');
+        const item = document.createElement('li');
+        item.textContent = msg;
+        messages.appendChild(item);
+    });
+</script>
+
+</body>
+</html>

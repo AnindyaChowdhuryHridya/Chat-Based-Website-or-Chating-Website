@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat - Hello Buddy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="background-rectangles">
+            <div class="rectangle light-grey"></div>
+            <div class="rectangle dark-grey"></div>
+        </div>
+        <div class="logo-container">
+            <img src="hellobuddy logo.png" alt="Hello Buddy Logo" width="60" height="60">
+            <h1 class="header-text">HELLO BUDDY</h1>
+        </div>
+    </header>
+    
+      <!-- Main Container -->
+      <div class="main-container">
+        <!-- Left Section -->
+        <div class="left-container">
+            <h1><a href="profile.html"style="text-decoration: none; color: inherit; display: flex; align-items: center;">Chats</a></h1>
+            <input type="text" class="chat-search" placeholder="Search or start a new chat">
+
+            <!-- Chat List -->
+            <ul class="chat-list">
+              <a href="AzianaChat.html"style="text-decoration: none; color: inherit; display: flex; align-items: center;">
+                <li>
+                  <a href="AzianaChat.html"style="text-decoration: none; color: inherit; display: flex; align-items: center;">
+                    <img src="picture1.jpeg" alt="Profile Picture">
+                    <div>
+                        <strong>Aziana Tumbe</strong>
+                        <p>wow</p>
+                    </div>
+                  </a>
+                </li>
+              </a>
+                <li>
+                    <img src="picture2.jpeg" alt="Profile Picture">
+                    <div>
+                        <strong>Mokles</strong>
+                        <p>Messages</p>
+                    </div>
+                </li>
+                <li>
+                    <img src="picture3.jpeg" alt="Profile Picture">
+                    <div>
+                        <strong>Saiful</strong>
+                        <p>Messages</p>
+                    </div>
+                </li>
+                <li>
+                    <img src="picture5.jpeg" alt="Profile Picture">
+                    <div>
+                        <strong>Parvez</strong>
+                        <p>Messages</p>
+                    </div>
+                </li>
+                <li>
+                    <img src="picture4.jpeg" alt="Profile Picture">
+                    <div>
+                        <strong>Nisa</strong>
+                        <p>Messages</p>
+                    </div>
+                </li>
+                <!-- Add more chats -->
+            </ul>
+        </div>
+
+        <!-- Right Section (Profile) -->
+        <!-- Right Section (Chat) -->
+<div class="right-container">
+    <!-- Chat Area -->
+    <div class="chat-area">
+        <div class="chat-header">
+          <div class="profile-info">
+            <img src="picture2.jpeg" alt="User" class="chat-profile-image">
+            <div>
+              <h3>Mokles</h3>
+              <span class="status">Online</span>
+            </div>
+          </div>
+          <div class="chat-icons">
+            <span>📞</span>
+            <span>📹</span>
+          </div>
+        </div>
+
+        <div class="chat-messages">
+          <div class="message received">
+            <p>Hey Buddy, What's up!</p>
+            <span class="time">9:32 AM</span>
+          </div>
+          <div class="message sent">
+            <p>Going same as before</p>
+            <span class="time">9:32 AM</span>
+          </div>
+          <div class="message sent">
+            <p>What about u?</p>
+            <span class="time">9:34 AM</span>
+          </div>
+          <div class="message received">
+            <p>I am just going with the flow</p>
+            <span class="time">9:37 AM</span>
+          </div>
+          <div class="message sent">
+            <p>Wow</p>
+            <span class="time">9:41 AM</span>
+          </div>
+        </div>
+        <div class="chat-input">
+            <span class="attach-icon">📎</span>
+            <input type="text" id= "message-input" placeholder= "Text Message Here" autocomplete="off">
+            <button id="send-button" class="send-button"> Send➤</button>
+          </div>
+
+
+</div>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    const socket = io();
+
+    const sendButton = document.getElementById('send-button');
+    const messageInput = document.getElementById('message-input');
+    const chatMessages = document.querySelector('.chat-messages');
+
+    // Send a message to the server
+    sendButton.addEventListener('click', () => {
+        const messageText = messageInput.value.trim();
+        if (messageText !== '') {
+            socket.emit('chat message', messageText); // Send to the server
+            addMessage(messageText, 'sent'); // Display on the sender's screen
+            messageInput.value = ''; // Clear input field
+        }
+    });
+
+    // Listen for incoming messages
+    socket.on('chat message', (msg) => {
+        addMessage(msg, 'received'); // Display on receiver's screen
+    });
+
+    // Function to add a message to the chat area
+    function addMessage(text, type) {
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('message', type);
+        messageElement.innerHTML = `<p>${text}</p><span class="time">Just now</span>`;
+        chatMessages.appendChild(messageElement);
+        chatMessages.scrollTop = chatMessages.scrollHeight; // Auto-scroll to the latest message
+    }
+</script>
+</body>
+</html>
